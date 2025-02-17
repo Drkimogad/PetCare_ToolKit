@@ -2,7 +2,7 @@
 
 // IndexedDB setup for storing profiles and media
 let db;
-const request = indexedDB.open('PetSocialNetwork', 1);
+const request = indexedDB.open('petSocialNetwork', 1);
 
 request.onupgradeneeded = function(event) {
   db = event.target.result;
