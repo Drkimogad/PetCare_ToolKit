@@ -2,7 +2,7 @@
 
 // IndexedDB setup for storing event details
 let db;
-const request = indexedDB.open('PetBirthdayPlanner', 1);
+const request = indexedDB.open('birthdayPlanner', 1);
 
 request.onupgradeneeded = function(event) {
   db = event.target.result;
