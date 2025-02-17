@@ -2,7 +2,7 @@
 
 // IndexedDB setup for storing expense logs
 let db;
-const request = indexedDB.open('PetExpenseTracker', 1);
+const request = indexedDB.open('expenseTracker', 1);
 
 request.onupgradeneeded = function(event) {
   db = event.target.result;
