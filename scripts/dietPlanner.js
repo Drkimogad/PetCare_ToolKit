@@ -1,7 +1,7 @@
 // Diet Planner (App 2)
 export function render() {
   return `
-    <h2>Pet Diet Planner</h2>
+    <h2>Diet Planner</h2>
     <div class="form-group">
       <input type="text" id="food-name" placeholder="Food name">
       <input type="number" id="food-amount" placeholder="Amount (g)">
