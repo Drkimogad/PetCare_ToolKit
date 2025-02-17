@@ -2,7 +2,7 @@
 
 // IndexedDB setup for storing weight logs
 let db;
-const request = indexedDB.open('PetWeightMonitor', 1);
+const request = indexedDB.open('weightMonitor', 1);
 
 request.onupgradeneeded = function(event) {
   db = event.target.result;
