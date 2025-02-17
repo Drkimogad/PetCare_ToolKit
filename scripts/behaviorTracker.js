@@ -2,7 +2,7 @@
 
 // IndexedDB setup for behavior logs
 let db;
-const request = indexedDB.open('PetBehaviorTracker', 1);
+const request = indexedDB.open('behaviorTracker', 1);
 
 request.onupgradeneeded = function(event) {
   db = event.target.result;
