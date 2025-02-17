@@ -2,7 +2,7 @@
 
 // IndexedDB setup for storing pet medical records and emergency plans
 let db;
-const request = indexedDB.open('PetEmergencyKit', 1);
+const request = indexedDB.open('emergencyKit', 1);
 
 request.onupgradeneeded = function(event) {
   db = event.target.result;
