@@ -2,7 +2,7 @@
 
 // IndexedDB setup for storing media files
 let db;
-const request = indexedDB.open('PetMemoryBook', 1);
+const request = indexedDB.open('memoryBook', 1);
 
 request.onupgradeneeded = function(event) {
   db = event.target.result;
