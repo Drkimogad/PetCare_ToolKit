@@ -2,7 +2,7 @@
 
 // IndexedDB setup for storing detailed first aid guides
 let db;
-const request = indexedDB.open('PetFirstAidGuide', 1);
+const request = indexedDB.open('firstAidGuide', 1);
 
 request.onupgradeneeded = function(event) {
   db = event.target.result;
