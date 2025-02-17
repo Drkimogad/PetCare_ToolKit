@@ -7,34 +7,39 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-         <!-- Authentication Section (Login/Sign-Up) -->
-        <section id="authSection">
-            <div id="signUpForm">
-                <h2>Sign-Up</h2>
-                <form id="signUp">
-                    <label for="signUpEmail">Email:</label>
-                    <input type="email" id="signUpEmail" name="email" required autocomplete="email"><br><br>
-                    <label for="signUpPassword">Password:</label>
-                    <input type="password" id="signUpPassword" name="password" required autocomplete="new-password"><br><br>
-                    <button type="submit">Sign Up</button>
-                </form>
-            </div>
 
-            <div id="loginForm" style="display: none;">
-                <h2>Login</h2>
-                <form id="login">
-                    <label for="loginEmail">Email:</label>
-                    <input type="email" id="loginEmail" name="email" required autocomplete="email"><br><br>
-                    <label for="loginPassword">Password:</label>
-                    <input type="password" id="loginPassword" name="password" required autocomplete="current-password"><br><br>
-                    <button type="submit">Login</button>
-                </form>
-            </div>
-        </section>
+  <!-- Authentication Section (Login/Sign-Up) -->
+  <section id="authSection">
+      <div id="signUpForm">
+          <h2>Sign-Up</h2>
+          <form id="signUp">
+              <label for="signUpEmail">Email:</label>
+              <input type="email" id="signUpEmail" name="email" required autocomplete="email">
+              <label for="signUpPassword">Password:</label>
+              <input type="password" id="signUpPassword" name="password" required autocomplete="new-password">
+              <button type="submit">Sign Up</button>
+          </form>
+      </div>
+
+      <div id="loginForm" style="display: none;">
+          <h2>Login</h2>
+          <form id="login">
+              <label for="loginEmail">Email:</label>
+              <input type="email" id="loginEmail" name="email" required autocomplete="email">
+              <label for="loginPassword">Password:</label>
+              <input type="password" id="loginPassword" name="password" required autocomplete="current-password">
+              <button type="submit">Login</button>
+          </form>
+      </div>
+  </section>
+
+  <!-- Logout Button -->
+  <button id="logoutButton" style="display: none;">Logout</button>
+
   <!-- Tab Navigation -->
   <nav class="tab-nav">
     <button class="tab-btn active" data-app="dietPlanner">Diet Planner</button>
-    <button class="tab-btn" data-app="groomingScheduler">Grooming Schedular</button>
+    <button class="tab-btn" data-app="groomingScheduler">Grooming Scheduler</button>
     <button class="tab-btn" data-app="behaviorTracker">Behavior Tracker</button>
     <button class="tab-btn" data-app="emergencyKit">Emergency Kit</button>
     <button class="tab-btn" data-app="trainingGuide">Training Guide</button>
@@ -48,10 +53,13 @@
     <button class="tab-btn" data-app="petSocialNetwork">Pet Social Network</button>
   </nav>
 
-  <!-- App Content Container -->
-  <div id="app-container"></div>
+  <!-- Main Content Section -->
+  <div id="mainContent" style="display: none;">
+    <div id="app-container"></div>
+  </div>
 
   <!-- Shared Scripts -->
   <script src="scripts/main.js" type="module"></script>
+
 </body>
 </html>
