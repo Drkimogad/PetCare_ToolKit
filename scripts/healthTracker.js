@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const dbName = "PetHealthDB";
+    const dbName = "healthTarckerDB";
     const dbVersion = 1;
     let db;
 
