@@ -2,7 +2,7 @@
 
 // IndexedDB setup for storing location data
 let db;
-const request = indexedDB.open('PetFriendlyPlacesMap', 1);
+const request = indexedDB.open('friendlyPlacesMap', 1);
 
 request.onupgradeneeded = function(event) {
   db = event.target.result;
