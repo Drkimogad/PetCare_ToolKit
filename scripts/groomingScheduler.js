@@ -2,7 +2,7 @@
 
 // IndexedDB setup for grooming schedules
 let db;
-const request = indexedDB.open('PetGroomingScheduler', 1);
+const request = indexedDB.open('groomingScheduler', 1);
 
 request.onupgradeneeded = function(event) {
   db = event.target.result;
