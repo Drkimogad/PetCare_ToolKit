@@ -2,7 +2,7 @@
 
 // IndexedDB setup for storing training tutorials
 let db;
-const request = indexedDB.open('PetTrainingGuide', 1);
+const request = indexedDB.open('trainingGuide', 1);
 
 request.onupgradeneeded = function(event) {
   db = event.target.result;
