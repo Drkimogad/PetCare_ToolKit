@@ -1,0 +1,314 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+h1 {
+    color: #6a0dad;
+}
+
+h2 {
+    color: #007bff;
+}
+
+form {
+    margin: 20px auto;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button {
+    background-color: #ffa500;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.button:hover {
+    background-color: #e69500;
+}
+
+.hidden {
+    display: none;
+}
+
+#logoutBtn {
+    display: none; /* Hide the button initially */
+}
+
+#dashboard {
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.petCard {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
+    background-color: #ffffff;
+    width: calc(100% - 20px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.petCard h3 {
+    margin: 0;
+    color: #6a0dad;
+}
+
+.petCard p {
+    margin: 5px 0;
+}
+
+.petCard img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.deleteBtn {
+    background-color: #ff0000;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.deleteBtn:hover {
+    background-color: #cc0000;
+}
+
+.printBtn {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px; /* Adds space between print button and footer */
+}
+
+.printBtn:hover {
+    background-color: #0056b3;
+}
+
+#petList {
+    margin-bottom: 80px; /* Adds space at the bottom to ensure print button isn't hidden */
+}
+
+#logoutBtn {
+    background-color: #ff4500; /* Distinct color to indicate logout */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block; /* Ensure it occupies its own line */
+    margin: 20px auto; /* Center the button horizontally */
+    width: 150px; /* Optional: Fixed width for uniformity */
+}
+
+#logoutBtn:hover {
+    background-color: #cc3700; /* Darker shade for hover effect */
+}
+
+footer {
+    position: relative;
+    padding: 20px;
+    background-color: #6a0dad; /* Footer background color */
+    color: white;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    margin-top: 20px; /* Adjusts the gap between profiles and footer */
+}
+
+/* Print styles - specifically for handling image scaling and visibility */
+@media print {
+    /* Ensure images are resized properly and centered */
+    .petCard img {
+        width: 100%;                 /* Ensure image takes up full width */
+        max-width: 100%;             /* Prevent overflow */
+        height: auto;                /* Maintain aspect ratio */
+        max-height: 70vh;            /* Ensure only one image per page */
+        object-fit: contain;         /* Ensure the image is contained */
+        margin: 0 auto;              /* Center the images */
+        display: block;              /* Block display for centering */
+    }
+
+    /* Adjust font size for printing */
+    body {
+        font-size: 20pt;             /* Decreased font size for better print layout */
+    }
+
+    /* Adjust pet profile details for printing */
+    .petCard h3, .petCard p {
+        font-size: 26pt;             /* Adjusted font size for better print layout */
+    }
+
+    /* Ensure each card starts on a new page */
+    .petCard {
+        page-break-inside: avoid;    /* Prevent profile cards from splitting across pages */
+        page-break-after: always;    /* Ensure each card starts on a new page */
+        margin-bottom: 0;            /* Remove margin to avoid extra space */
+    }
+
+    /* Ensuring the print button and other irrelevant elements are hidden */
+    .printBtn, .deleteBtn {
+        display: none;               /* Hide buttons in print view */
+    }
+
+    /* Adjust margins for a clean print */
+    #petList {
+        margin-bottom: 0; /* Avoid extra space at the bottom */
+    }
+
+    footer {
+        display: none; /* Hide footer for the print view */
+    }
+}
+
+/* Phone screen optimization */
+@media screen and (max-width: 612px) {
+    form {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .petCard {
+        padding: 10px;
+        margin: 5px;
+        width: calc(100% - 10px);
+    }
+
+    .petCard h3, .petCard p {
+        font-size: 16pt;             /* Smaller font size for smaller screens */
+    }
+
+    .petCard img {
+        max-width: 100%;             /* Ensure images fit within the screen width */
+        height: 100%;
+        max-height: 60vh;            /* Prevent images from overlapping pages */
+    }
+
+    .printBtn, .deleteBtn {
+        padding: 8px;                /* Smaller padding for buttons */
+    }
+
+    footer {
+        padding: 10px;
+        font-size: 14pt;             /* Smaller font size for footer */
+    }
+}
+
+/* Tablet screens */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    .petCard {
+        width: 100%;                /* Increased width to use more of the screen */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .petCard img {
+        max-width: 100%;            /* Ensure image fits within the screen */
+        max-height: 70vh;           /* Prevent image overflow */
+    }
+
+    .printBtn, .deleteBtn {
+        padding: 10px;              /* Adjust padding for buttons */
+    }
+
+    footer {
+        padding: 15px;
+        font-size: 15pt;             /* Adjust font size for footer */
+    }
+}
+
+/* Desktop screens */
+@media screen and (min-width: 1025px) {
+    .petCard {
+        padding: 15px;
+        margin: 10px;
+        width: calc(100% - 20px);
+    }
+
+    .petCard h3, .petCard p {
+        font-size: 18pt;             /* Adjust font size for larger screens */
+    }
+
+    .petCard img {
+        max-width: 100%;              /* Ensure image does not exceed container width */
+        max-height: 70vh;            /* Prevent images from spanning multiple pages */
+        height: auto;                /* Adjust height to maintain aspect ratio */
+    }
+
+    .printBtn, .deleteBtn {
+        padding: 10px;               /* Adjust padding for buttons */
+    }
+}
+
+/* Centralized styling for "Already have an account? Login here" */
+#loginLinkContainer {
+    display: flex;
+    justify-content: center;  /* Centers the content horizontally */
+    align-items: center;      /* Centers the content vertically (if the container has height) */
+    text-align: center;       /* Centers text inside the container */
+    margin-top: 20px;         /* Adds spacing from the elements above */
+    font-size: 16px;          /* Adjust the text size if necessary */
+    color: #555555;           /* Optional: Style the text color */
+    height: 100%;             /* Ensure it has a height to allow vertical centering */
+}
+
+/* New styling for the enable notifications button */
+#enableNotificationsButton {
+    background-color: #32cd32; /* Lime green background */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block; /* Ensure it occupies its own line */
+    margin: 20px auto; /* Center the button horizontally */
+    width: 200px; /* Optional: Fixed width for uniformity */
+    font-size: 16px; /* Increase font size for better visibility */
+}
+
+#enableNotificationsButton:hover {
+    background-color: #28a745; /* Darker shade for hover effect */
+}
