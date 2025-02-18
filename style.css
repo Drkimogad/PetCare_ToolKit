@@ -1,86 +1,66 @@
 /* Shared Styles */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  background: #2e2b2b; /* Dark Charcoal */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #1e1e1e; /* Dark Charcoal */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.auth-container, .nav-container, #app-container {
-  width: 80%;
-  height: 80%;
-  background: #f4a900; /* Mustard */
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+/* Auth Containers */
+.auth-container, .nav-container {
+    width: 80%;
+    max-width: 400px;
+    background: #ffdb58; /* Mustard */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.tab-nav {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
+h2 {
+    color: #4b0082; /* Dark Purple */
 }
 
-.tab-btn {
-  padding: 10px 20px;
-  background: #5d1049; /* Dark Purple */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.tab-btn:hover {
-  background: #450d35;
-}
-
-.tab-btn.active {
-  background: #7b1e63;
-}
-
-#app-container {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  width: 100%;
-  height: 100%;
-}
-
-/* App-Specific Styles (Example) */
-.form-group {
-  margin-bottom: 15px;
-  width: 100%;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+/* Forms */
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
 }
 
 button {
-  background: #5d1049; /* Dark Purple */
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
+    width: 100%;
+    padding: 10px;
+    background: #4b0082; /* Dark Purple */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 button:hover {
-  background: #450d35;
+    background: #35005b;
+}
+
+/* Navigation Buttons */
+.app-btn {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    background: #4b0082;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.app-btn:hover {
+    background: #35005b;
 }
