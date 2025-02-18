@@ -86,7 +86,11 @@ document.getElementById('memoryForm').addEventListener('submit', function(event)
   const caption = document.getElementById('caption').value;
   const date = document.getElementById('date').value;
 
-  addMemory(file, caption, date);
+  if (file && caption && date) {
+    addMemory(file, caption, date);
+  } else {
+    alert("Please fill all the fields.");
+  }
 });
 
 // Initialize display
