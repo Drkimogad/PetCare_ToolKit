@@ -81,6 +81,35 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    document.addEventListener("DOMContentLoaded", function () {
+    const appContainer = document.getElementById("app-container");
+    const tabButtons = document.querySelectorAll(".tab-btn");
+
+    tabButtons.forEach(button => {
+        button.addEventListener("click", async function () {
+            const appName = this.getAttribute("data-app");
+            loadApp(appName);
+        });
+    });
+// function to load the apps
+    async function loadApp(appName) {
+        try {
+            appContainer.innerHTML = "<p>Loading...</p>";
+            const module = await import(`./${appName}.js`);
+            
+            if (module.default) {
+                appContainer.innerHTML = "";
+                module.default(appContainer);
+            } else {
+                appContainer.innerHTML = `<p>Error: Module '${appName}.js' is missing a default export.</p>`;
+            }
+        } catch (error) {
+            appContainer.innerHTML = `<p>Error loading '${appName}.js'. Check console for details.</p>`;
+            console.error(`Failed to load '${appName}.js':`, error);
+        }
+    }
+});
+
     // Function to Load Apps Dynamically
     function loadApp(appName) {
         appContainer.innerHTML = `
