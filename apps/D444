@@ -1,1 +1,61 @@
-g6f66
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Book</title>
+    <link rel="icon" href="https://drkimogad.github.io/PetStudio/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Dashboard -->
+    <div id="dashboard">
+        <h1>Memory Book</h1>
+        
+        <!-- Form to Add Memories -->
+        <div id="addMemoryForm">
+            <h2>Add a Memory</h2>
+            <form id="memoryForm">
+                <label for="file">Upload Image:</label>
+                <input type="file" id="file" name="file" required accept="image/*">
+                <label for="caption">Caption:</label>
+                <input type="text" id="caption" name="caption" required>
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+                <button type="submit" class="button">Add Memory</button>
+            </form>
+        </div>
+
+        <!-- Displaying Memories -->
+        <div id="memoryContainer">
+            <!-- Memory items will be dynamically added here -->
+        </div>
+
+        <!-- Timeline of Significant Events -->
+        <div id="timelineContainer">
+            <!-- Timeline items will be dynamically added here -->
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Memory Book. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('https://drkimogad.github.io/PetStudio/service-worker.js').then(function(registration) {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                }).catch(function(error) {
+                    console.log('Service Worker registration failed:', error);
+                });
+            });
+        }
+    </script>
+
+    <!-- Custom Script (Memory Book Functionality) -->
+    <script src="memoryBook.js"></script>
+</body>
+</html>
