@@ -3,7 +3,24 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
-  background: #f0f4f8;
+  background: #2e2b2b; /* Dark Charcoal */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.auth-container, .nav-container, #app-container {
+  width: 80%;
+  height: 80%;
+  background: #f4a900; /* Mustard */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 .tab-nav {
@@ -15,15 +32,20 @@ body {
 
 .tab-btn {
   padding: 10px 20px;
-  background: #4CAF50;
+  background: #5d1049; /* Dark Purple */
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background 0.3s;
+}
+
+.tab-btn:hover {
+  background: #450d35;
 }
 
 .tab-btn.active {
-  background: #45a049;
+  background: #7b1e63;
 }
 
 #app-container {
@@ -31,24 +53,34 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  width: 100%;
+  height: 100%;
 }
 
 /* App-Specific Styles (Example) */
 .form-group {
   margin-bottom: 15px;
+  width: 100%;
 }
 
 input, textarea {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 button {
-  background: #4CAF50;
+  background: #5d1049; /* Dark Purple */
   color: white;
   border: none;
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #450d35;
 }
