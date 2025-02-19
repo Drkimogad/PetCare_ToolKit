@@ -4,7 +4,7 @@ function getUser(email, password) {
                               user.password === password);
 }
 document.addEventListener("DOMContentLoaded", function () {
-    const loginForm = document.getElementById("login");
+    const loginForm = document.getElementById("loginForm");
 
     if (!loginForm) {
         alert("Login form not found! Check your HTML.");
