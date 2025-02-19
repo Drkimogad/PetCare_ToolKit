@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
+    color: #333;
 }
 
 h1, h2 {
@@ -18,6 +19,36 @@ h2 {
     color: #007bff;
 }
 
+/* Dark Mode Styling */
+body.dark-mode {
+    background-color: #222;
+    color: #f5f5f5;
+}
+
+body.dark-mode h1 {
+    color: #ffa500;
+}
+
+body.dark-mode h2 {
+    color: #66b2ff;
+}
+
+body.dark-mode form,
+body.dark-mode #petProfile,
+body.dark-mode #memoryReminder {
+    background-color: #333;
+    color: #f5f5f5;
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background-color: #555;
+    color: #f5f5f5;
+    border: 1px solid #777;
+}
+
+/* Form Styling */
 form {
     margin: 20px auto;
     max-width: 400px;
@@ -33,7 +64,7 @@ label {
     font-weight: bold;
 }
 
-input {
+input, textarea, select {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -41,7 +72,8 @@ input {
     border-radius: 5px;
 }
 
-.button {
+/* Button Styling */
+.button, button {
     background-color: #ffa500;
     color: white;
     padding: 10px 20px;
@@ -51,45 +83,77 @@ input {
     width: 100%;
 }
 
-.button:hover {
+.button:hover, button:hover {
     background-color: #e69500;
 }
 
-.hidden {
-    display: none;
-}
-
-#logoutBtn {
-    display: none; /* Hide the button initially */
-}
-
+/* Dashboard Container */
 #dashboard {
     padding: 20px;
     background-color: #ffffff;
 }
 
-.petCard {
+/* Dark Mode Toggle Button */
+#darkModeToggle {
+    margin: 10px auto;
+    display: block;
+    max-width: 200px;
+}
+
+/* Pet Profile Section */
+#petProfile {
+    margin: 20px auto;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#petProfile label {
+    margin-top: 10px;
+}
+
+/* Add New Profile Button */
+#addNewProfile {
+    margin: 10px auto;
+    display: block;
+    max-width: 200px;
+}
+
+/* Memory Form Enhancements */
+#memoryForm {
+    text-align: left;
+}
+
+#imagePreview {
+    display: none;
+    max-width: 100px;
+    margin-bottom: 15px;
+}
+
+/* Memory Reminder Section */
+#memoryReminder {
+    margin: 20px auto;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* Memory Items (Dynamic) */
+.memory-item {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 15px;
     margin: 10px;
     background-color: #ffffff;
-    width: calc(100% - 20px);
     position: relative;
-    display: flex;
-    flex-direction: column;
 }
 
-.petCard h3 {
-    margin: 0;
-    color: #6a0dad;
-}
-
-.petCard p {
-    margin: 5px 0;
-}
-
-.petCard img {
+.memory-item img {
     display: block;
     margin: 0 auto;
     max-width: 100%;
@@ -97,218 +161,149 @@ input {
     object-fit: contain;
 }
 
-.deleteBtn {
-    background-color: #ff0000;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-.deleteBtn:hover {
-    background-color: #cc0000;
-}
-
-.printBtn {
+/* Buttons inside Memory Items */
+/* (Ensure your JS adds these classes: .editBtn, .deleteBtn, .exportBtn) */
+.memory-item button.editBtn,
+.memory-item button.deleteBtn,
+.memory-item button.exportBtn {
     background-color: #007bff;
     color: white;
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
-    margin-bottom: 10px; /* Adds space between print button and footer */
+    margin-right: 5px;
 }
 
-.printBtn:hover {
+.memory-item button.editBtn:hover {
     background-color: #0056b3;
 }
 
-#petList {
-    margin-bottom: 80px; /* Adds space at the bottom to ensure print button isn't hidden */
+.memory-item button.deleteBtn {
+    background-color: #ff0000;
 }
 
-#logoutBtn {
-    background-color: #ff4500; /* Distinct color to indicate logout */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: block; /* Ensure it occupies its own line */
-    margin: 20px auto; /* Center the button horizontally */
-    width: 150px; /* Optional: Fixed width for uniformity */
+.memory-item button.deleteBtn:hover {
+    background-color: #cc0000;
 }
 
-#logoutBtn:hover {
-    background-color: #cc3700; /* Darker shade for hover effect */
+.memory-item button.exportBtn {
+    background-color: #28a745;
 }
 
+.memory-item button.exportBtn:hover {
+    background-color: #218838;
+}
+
+/* Timeline Section */
+.timeline-item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+/* Footer Styling */
 footer {
     position: relative;
     padding: 20px;
-    background-color: #6a0dad; /* Footer background color */
+    background-color: #6a0dad;
     color: white;
     text-align: center;
     width: 100%;
     bottom: 0;
-    margin-top: 20px; /* Adjusts the gap between profiles and footer */
+    margin-top: 20px;
 }
 
-/* Print styles - specifically for handling image scaling and visibility */
+/* Print Styles */
 @media print {
-    /* Ensure images are resized properly and centered */
-    .petCard img {
-        width: 100%;                 /* Ensure image takes up full width */
-        max-width: 100%;             /* Prevent overflow */
-        height: auto;                /* Maintain aspect ratio */
-        max-height: 70vh;            /* Ensure only one image per page */
-        object-fit: contain;         /* Ensure the image is contained */
-        margin: 0 auto;              /* Center the images */
-        display: block;              /* Block display for centering */
+    .memory-item img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        max-height: 70vh;
+        object-fit: contain;
+        margin: 0 auto;
+        display: block;
     }
 
-    /* Adjust font size for printing */
     body {
-        font-size: 20pt;             /* Decreased font size for better print layout */
+        font-size: 20pt;
     }
 
-    /* Adjust pet profile details for printing */
-    .petCard h3, .petCard p {
-        font-size: 26pt;             /* Adjusted font size for better print layout */
+    .memory-item {
+        page-break-inside: avoid;
+        page-break-after: always;
+        margin-bottom: 0;
     }
 
-    /* Ensure each card starts on a new page */
-    .petCard {
-        page-break-inside: avoid;    /* Prevent profile cards from splitting across pages */
-        page-break-after: always;    /* Ensure each card starts on a new page */
-        margin-bottom: 0;            /* Remove margin to avoid extra space */
-    }
-
-    /* Ensuring the print button and other irrelevant elements are hidden */
-    .printBtn, .deleteBtn {
-        display: none;               /* Hide buttons in print view */
-    }
-
-    /* Adjust margins for a clean print */
-    #petList {
-        margin-bottom: 0; /* Avoid extra space at the bottom */
+    .editBtn, .deleteBtn, .exportBtn {
+        display: none;
     }
 
     footer {
-        display: none; /* Hide footer for the print view */
+        display: none;
     }
 }
 
-/* Phone screen optimization */
+/* Phone Screen Optimization */
 @media screen and (max-width: 612px) {
     form {
         margin: 10px;
         padding: 15px;
     }
 
-    .petCard {
+    #petProfile, #memoryReminder {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .memory-item {
         padding: 10px;
         margin: 5px;
-        width: calc(100% - 10px);
     }
 
-    .petCard h3, .petCard p {
-        font-size: 16pt;             /* Smaller font size for smaller screens */
-    }
-
-    .petCard img {
-        max-width: 100%;             /* Ensure images fit within the screen width */
-        height: 100%;
-        max-height: 60vh;            /* Prevent images from overlapping pages */
-    }
-
-    .printBtn, .deleteBtn {
-        padding: 8px;                /* Smaller padding for buttons */
-    }
-
-    footer {
-        padding: 10px;
-        font-size: 14pt;             /* Smaller font size for footer */
+    .memory-item img {
+        max-height: 60vh;
     }
 }
 
-/* Tablet screens */
+/* Tablet Screens */
 @media screen and (min-width: 601px) and (max-width: 1024px) {
-    .petCard {
-        width: 100%;                /* Increased width to use more of the screen */
-        margin-left: auto;
-        margin-right: auto;
+    .memory-item {
+        width: 100%;
+        margin: 10px auto;
     }
 
-    .petCard img {
-        max-width: 100%;            /* Ensure image fits within the screen */
-        max-height: 70vh;           /* Prevent image overflow */
-    }
-
-    .printBtn, .deleteBtn {
-        padding: 10px;              /* Adjust padding for buttons */
-    }
-
-    footer {
-        padding: 15px;
-        font-size: 15pt;             /* Adjust font size for footer */
+    .memory-item img {
+        max-height: 70vh;
     }
 }
 
-/* Desktop screens */
+/* Desktop Screens */
 @media screen and (min-width: 1025px) {
-    .petCard {
+    .memory-item {
         padding: 15px;
         margin: 10px;
         width: calc(100% - 20px);
     }
 
-    .petCard h3, .petCard p {
-        font-size: 18pt;             /* Adjust font size for larger screens */
-    }
-
-    .petCard img {
-        max-width: 100%;              /* Ensure image does not exceed container width */
-        max-height: 70vh;            /* Prevent images from spanning multiple pages */
-        height: auto;                /* Adjust height to maintain aspect ratio */
-    }
-
-    .printBtn, .deleteBtn {
-        padding: 10px;               /* Adjust padding for buttons */
+    .memory-item img {
+        max-height: 70vh;
     }
 }
 
-/* Centralized styling for "Already have an account? Login here" */
+/* Centralized styling for Login Link (if applicable) */
 #loginLinkContainer {
     display: flex;
-    justify-content: center;  /* Centers the content horizontally */
-    align-items: center;      /* Centers the content vertically (if the container has height) */
-    text-align: center;       /* Centers text inside the container */
-    margin-top: 20px;         /* Adds spacing from the elements above */
-    font-size: 16px;          /* Adjust the text size if necessary */
-    color: #555555;           /* Optional: Style the text color */
-    height: 100%;             /* Ensure it has a height to allow vertical centering */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #555555;
+    height: 100%;
 }
 
-/* New styling for the enable notifications button */
+/* Enable Notifications Button */
 #enableNotificationsButton {
-    background-color: #32cd32; /* Lime green background */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: block; /* Ensure it occupies its own line */
-    margin: 20px auto; /* Center the button horizontally */
-    width: 200px; /* Optional: Fixed width for uniformity */
-    font-size: 16px; /* Increase font size for better visibility */
-}
-
-#enableNotificationsButton:hover {
-    background-color: #28a745; /* Darker shade for hover effect */
-}
+    
