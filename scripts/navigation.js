@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const navTabs = document.querySelectorAll(".tab-btn");
+    const navTabs = document.querySelectorAll(".app-btn"); // Match correct class
     const logoutBtn = document.getElementById("logout");
 
     // Check if user is logged in
@@ -11,15 +11,17 @@ document.addEventListener("DOMContentLoaded", function () {
     // Open apps in a new window
     navTabs.forEach(button => {
         button.addEventListener("click", function () {
-            const app = this.getAttribute("data-app");
-            window.open(`${app}.html`, "_blank");
+            const app = this.getAttribute("onclick").match(/'([^']+)'/)[1]; // Extract URL from onclick
+            window.open(app, "_blank");
         });
     });
 
-    // Handle Logout
-    logoutBtn.addEventListener("click", function () {
-        localStorage.removeItem("loggedInUser");
-        alert("Logged out successfully!");
-        window.location.href = "login.html"; // Redirect to login page
-    });
+    // Handle Logout (check if it exists before adding event)
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", function () {
+            localStorage.removeItem("loggedInUser");
+            alert("Logged out successfully!");
+            window.location.href = "login.html"; // Redirect to login page
+        });
+    }
 });
