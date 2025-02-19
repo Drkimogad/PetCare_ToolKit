@@ -9,25 +9,25 @@
 <body>
     <div class="nav-container">
         <h2>Welcome to PetCare Toolkit</h2>
-        <button class="app-btn" onclick="openApp('dietPlanner.html')">Diet Planner</button>
-        <button class="app-btn" onclick="openApp('groomingScheduler.html')">Grooming Scheduler</button>
-        <button class="app-btn" onclick="openApp('behaviorTracker.html')">Behavior Tracker</button>
-        <button class="app-btn" onclick="openApp('emergencyKit.html')">Emergency Kit</button>
-        <button class="app-btn" onclick="openApp('trainingGuide.html')">Training Guide</button>
-        <button class="app-btn" onclick="openApp('firstAid.html')">First Aid</button>
-        <button class="app-btn" onclick="openApp('weightMonitor.html')">Weight Monitor</button>
-        <button class="app-btn" onclick="openApp('birthdayPlanner.html')">Birthday Planner</button>
-        <button class="app-btn" onclick="openApp('expenseTracker.html')">Expense Tracker</button>
-        <button class="app-btn" onclick="openApp('activityLogger.html')">Activity Logger</button>
-        <button class="app-btn" onclick="openApp('healthTracker.html')">Health Tracker</button>
-        <button class="app-btn" onclick="openApp('memoryBook.html')">Memory Book</button>
-        <button class="app-btn" onclick="openApp('petSocialNetwork.html')">Pet Social Network</button>
+        <button class="app-btn" data-app="dietPlanner.html">Diet Planner</button>
+        <button class="app-btn" data-app="groomingScheduler.html">Grooming Scheduler</button>
+        <button class="app-btn" data-app="behaviorTracker.html">Behavior Tracker</button>
+        <button class="app-btn" data-app="emergencyKit.html">Emergency Kit</button>
+        <button class="app-btn" data-app="trainingGuide.html">Training Guide</button>
+        <button class="app-btn" data-app="firstAid.html">First Aid</button>
+        <button class="app-btn" data-app="weightMonitor.html">Weight Monitor</button>
+        <button class="app-btn" data-app="birthdayPlanner.html">Birthday Planner</button>
+        <button class="app-btn" data-app="expenseTracker.html">Expense Tracker</button>
+        <button class="app-btn" data-app="activityLogger.html">Activity Logger</button>
+        <button class="app-btn" data-app="healthTracker.html">Health Tracker</button>
+        <button class="app-btn" data-app="memoryBook.html">Memory Book</button>
+        <button class="app-btn" data-app="petSocialNetwork.html">Pet Social Network</button>
+        
+        <!-- Logout Button -->
+        <button id="logout">Logout</button>
     </div>
-    <script>
-        function openApp(appUrl) {
-            window.open(appUrl, '_blank');
-        }
-    </script>
+
+    <!-- External JavaScript -->
     <script src="scripts/navigation.js"></script>
 </body>
 </html>
