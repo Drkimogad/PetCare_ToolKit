@@ -20,6 +20,14 @@ request.onerror = function(event) {
   console.error('Database error:', event.target.errorCode);
 };
 
+// Toggle Dark Mode
+document.getElementById('darkModeToggle').addEventListener('click', () => {
+  document.documentElement.setAttribute('data-theme', 
+    document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+  );
+});
+
+
 // Add new memory with category
 function addMemory(file, caption, date, category) {
   const reader = new FileReader();
