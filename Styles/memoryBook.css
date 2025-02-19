@@ -1,309 +1,191 @@
-/* General Styling */
+/* memoryBook.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  --primary-color: #ff6b6b;
+  --secondary-color: #4ecdc4;
+  --background-color: #f5f5f5;
+  --text-color: #333;
+  --card-bg: white;
+  --transition: all 0.3s ease;
+}
+
+[data-theme="dark"] {
+  --background-color: #1a1a1a;
+  --text-color: #fff;
+  --card-bg: #2d2d2d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  transition: var(--transition);
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-    color: #333;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 20px;
+}
+
+#dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
 h1, h2 {
-    text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
 }
 
 h1 {
-    color: #6a0dad;
+  font-size: 2.5rem;
+  text-align: center;
+  grid-column: 1 / -1;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
-h2 {
-    color: #007bff;
+#darkModeToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  background: var(--primary-color);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Dark Mode Styling */
-body.dark-mode {
-    background-color: #222;
-    color: #f5f5f5;
+#darkModeToggle:hover {
+  transform: scale(1.05);
 }
 
-body.dark-mode h1 {
-    color: #ffa500;
-}
-
-body.dark-mode h2 {
-    color: #66b2ff;
-}
-
-body.dark-mode form,
-body.dark-mode #petProfile,
-body.dark-mode #memoryReminder {
-    background-color: #333;
-    color: #f5f5f5;
-}
-
-body.dark-mode input,
-body.dark-mode textarea,
-body.dark-mode select {
-    background-color: #555;
-    color: #f5f5f5;
-    border: 1px solid #777;
-}
-
-/* Form Styling */
-form {
-    margin: 20px auto;
-    max-width: 400px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+#petProfile, #addMemoryForm, #memoryReminder, #memoryContainer, #timelineContainer {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
 input, textarea, select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text-color);
 }
 
-/* Button Styling */
-.button, button {
-    background-color: #ffa500;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
+input:focus, textarea:focus, select:focus {
+  border-color: var(--primary-color);
+  outline: none;
 }
 
-.button:hover, button:hover {
-    background-color: #e69500;
+.button {
+  background: var(--primary-color);
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-/* Dashboard Container */
-#dashboard {
-    padding: 20px;
-    background-color: #ffffff;
-}
-
-/* Dark Mode Toggle Button */
-#darkModeToggle {
-    margin: 10px auto;
-    display: block;
-    max-width: 200px;
-}
-
-/* Pet Profile Section */
-#petProfile {
-    margin: 20px auto;
-    max-width: 600px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-#petProfile label {
-    margin-top: 10px;
-}
-
-/* Add New Profile Button */
-#addNewProfile {
-    margin: 10px auto;
-    display: block;
-    max-width: 200px;
-}
-
-/* Memory Form Enhancements */
-#memoryForm {
-    text-align: left;
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255,107,107,0.3);
 }
 
 #imagePreview {
-    display: none;
-    max-width: 100px;
-    margin-bottom: 15px;
+  border-radius: 10px;
+  margin: 10px 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Memory Reminder Section */
-#memoryReminder {
-    margin: 20px auto;
-    max-width: 400px;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    text-align: center;
+#addNewProfile {
+  background: var(--secondary-color);
+  grid-column: 1 / -1;
+  justify-self: center;
 }
 
-/* Memory Items (Dynamic) */
-.memory-item {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 15px;
-    margin: 10px;
-    background-color: #ffffff;
-    position: relative;
+/* Timeline Styles */
+#timelineContainer {
+  position: relative;
+  padding-left: 40px;
 }
 
-.memory-item img {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
+#timelineContainer::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: var(--primary-color);
 }
 
-/* Buttons inside Memory Items */
-/* (Ensure your JS adds these classes: .editBtn, .deleteBtn, .exportBtn) */
-.memory-item button.editBtn,
-.memory-item button.deleteBtn,
-.memory-item button.exportBtn {
-    background-color: #007bff;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 5px;
-}
-
-.memory-item button.editBtn:hover {
-    background-color: #0056b3;
-}
-
-.memory-item button.deleteBtn {
-    background-color: #ff0000;
-}
-
-.memory-item button.deleteBtn:hover {
-    background-color: #cc0000;
-}
-
-.memory-item button.exportBtn {
-    background-color: #28a745;
-}
-
-.memory-item button.exportBtn:hover {
-    background-color: #218838;
-}
-
-/* Timeline Section */
 .timeline-item {
-    border-bottom: 1px solid #ccc;
-    padding: 10px;
-    margin: 5px 0;
+  position: relative;
+  margin-bottom: 2rem;
+  padding-left: 30px;
 }
 
-/* Footer Styling */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 5px;
+  width: 16px;
+  height: 16px;
+  background: var(--secondary-color);
+  border-radius: 50%;
+  border: 3px solid var(--card-bg);
+}
+
+/* Memory Cards */
+.memory-item {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin: 1rem 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 footer {
-    position: relative;
-    padding: 20px;
-    background-color: #6a0dad;
-    color: white;
-    text-align: center;
-    width: 100%;
-    bottom: 0;
-    margin-top: 20px;
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--primary-color);
 }
 
-/* Print Styles */
-@media print {
-    .memory-item img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        max-height: 70vh;
-        object-fit: contain;
-        margin: 0 auto;
-        display: block;
-    }
-
-    body {
-        font-size: 20pt;
-    }
-
-    .memory-item {
-        page-break-inside: avoid;
-        page-break-after: always;
-        margin-bottom: 0;
-    }
-
-    .editBtn, .deleteBtn, .exportBtn {
-        display: none;
-    }
-
-    footer {
-        display: none;
-    }
+@media (max-width: 768px) {
+  #dashboard {
+    grid-template-columns: 1fr;
+  }
+  
+  #timelineContainer::before {
+    left: 10px;
+  }
 }
-
-/* Phone Screen Optimization */
-@media screen and (max-width: 612px) {
-    form {
-        margin: 10px;
-        padding: 15px;
-    }
-
-    #petProfile, #memoryReminder {
-        margin: 10px;
-        padding: 15px;
-    }
-
-    .memory-item {
-        padding: 10px;
-        margin: 5px;
-    }
-
-    .memory-item img {
-        max-height: 60vh;
-    }
-}
-
-/* Tablet Screens */
-@media screen and (min-width: 601px) and (max-width: 1024px) {
-    .memory-item {
-        width: 100%;
-        margin: 10px auto;
-    }
-
-    .memory-item img {
-        max-height: 70vh;
-    }
-}
-
-/* Desktop Screens */
-@media screen and (min-width: 1025px) {
-    .memory-item {
-        padding: 15px;
-        margin: 10px;
-        width: calc(100% - 20px);
-    }
-
-    .memory-item img {
-        max-height: 70vh;
-    }
-}
-
-/* Centralized styling for Login Link (if applicable) */
-#loginLinkContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-top: 20px;
-    font-size: 16px;
-    color: #555555;
-    height: 100%;
-}
-
-/* Enable Notifications Button */
-#enableNotificationsButton {
-    
