@@ -45,7 +45,7 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
-                navigator.serviceWorker.register('https://drkimogad.github.io/PetStudio/service-worker.js').then(function(registration) {
+                navigator.serviceWorker.register('https://drkimogad.github.io/memoryBook/service-worker.js').then(function(registration) {
                     console.log('Service Worker registered with scope:', registration.scope);
                 }).catch(function(error) {
                     console.log('Service Worker registration failed:', error);
@@ -55,6 +55,6 @@
     </script>
 
     <!-- Custom Script (Memory Book Functionality) -->
-    <script src="memoryBook.js"></script>
+    <script src="scripts/memoryBook.js"></script>
 </body>
 </html>
