@@ -1,4 +1,3 @@
-/* memoryBook.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 :root {
@@ -10,7 +9,8 @@
   --transition: all 0.3s ease;
 }
 
-[data-theme="dark"] {
+/* Dark Mode using .dark-mode on body */
+body.dark-mode {
   --background-color: #1a1a1a;
   --text-color: #fff;
   --card-bg: #2d2d2d;
@@ -31,6 +31,7 @@ body {
   padding: 20px;
 }
 
+/* Dashboard layout */
 #dashboard {
   max-width: 1200px;
   margin: 0 auto;
@@ -39,6 +40,7 @@ body {
   gap: 2rem;
 }
 
+/* Headings */
 h1, h2 {
   color: var(--primary-color);
   margin-bottom: 1rem;
@@ -51,6 +53,7 @@ h1 {
   text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
+/* Dark Mode Toggle Button */
 #darkModeToggle {
   position: fixed;
   top: 20px;
@@ -68,13 +71,33 @@ h1 {
   transform: scale(1.05);
 }
 
-#petProfile, #addMemoryForm, #memoryReminder, #memoryContainer, #timelineContainer {
+/* Container styling for sections that share card look */
+#petProfile,
+#memoryEntry,
+#memoryReminder,
+#savedMemoriesContainer {
   background: var(--card-bg);
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
+/* Entry container (wraps pet profile & memory entry) */
+#entryContainer {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Return Navigation Container */
+#returnNavContainer {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* Form elements */
 input, textarea, select {
   width: 100%;
   padding: 12px;
@@ -90,6 +113,7 @@ input:focus, textarea:focus, select:focus {
   outline: none;
 }
 
+/* Button styling */
 .button {
   background: var(--primary-color);
   color: white;
@@ -107,50 +131,19 @@ input:focus, textarea:focus, select:focus {
   box-shadow: 0 5px 15px rgba(255,107,107,0.3);
 }
 
-#imagePreview {
-  border-radius: 10px;
-  margin: 10px 0;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
+/* Specific button: Add New Profile */
 #addNewProfile {
   background: var(--secondary-color);
   grid-column: 1 / -1;
   justify-self: center;
 }
 
-/* Timeline Styles */
-#timelineContainer {
-  position: relative;
-  padding-left: 40px;
-}
-
-#timelineContainer::before {
-  content: '';
-  position: absolute;
-  left: 20px;
-  top: 0;
-  height: 100%;
-  width: 2px;
-  background: var(--primary-color);
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 2rem;
-  padding-left: 30px;
-}
-
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -8px;
-  top: 5px;
-  width: 16px;
-  height: 16px;
-  background: var(--secondary-color);
-  border-radius: 50%;
-  border: 3px solid var(--card-bg);
+/* Image preview styling for both pet photo & memory image */
+#petPhotoPreview,
+#memoryImagePreview {
+  border-radius: 10px;
+  margin: 10px 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 /* Memory Cards */
@@ -172,6 +165,7 @@ input:focus, textarea:focus, select:focus {
   }
 }
 
+/* Footer */
 footer {
   grid-column: 1 / -1;
   text-align: center;
@@ -180,12 +174,9 @@ footer {
   border-top: 2px solid var(--primary-color);
 }
 
+/* Responsive adjustments */
 @media (max-width: 768px) {
   #dashboard {
     grid-template-columns: 1fr;
-  }
-  
-  #timelineContainer::before {
-    left: 10px;
   }
 }
