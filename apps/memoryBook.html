@@ -1,97 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Book</title>
-    <link rel="stylesheet" href="Styles/memoryBook.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Book</title>
+  <link rel="stylesheet" href="Styles/memoryBook.css">
 </head>
 <body>
-    <div id="dashboard">
-        <h1>Memory Book</h1>
+  <div id="dashboard">
+    <h1>Memory Book</h1>
+    <!-- Dark Mode Toggle -->
+    <button id="darkModeToggle">Toggle Dark Mode</button>
+    
+    <!-- Entry Section Container -->
+    <div id="entryContainer">
+      
+      <!-- Pet Profile Section -->
+      <div id="petProfile">
+        <h2>Pet Profile</h2>
+        <label for="petName">Name:</label>
+        <input type="text" id="petName" name="petName" required>
         
-        <!-- Dark Mode Toggle -->
-        <button id="darkModeToggle">Toggle Dark Mode</button>
-
-        <!-- Pet Profile Section -->
-        <div id="petProfile">
-            <h2>Pet Profile</h2>
-            <label for="petName">Name:</label>
-            <input type="text" id="petName" name="petName" required>
-            
-            <label for="petBreed">Breed Details:</label>
-            <textarea id="petBreed" name="petBreed" required></textarea>
-        </div>
+        <label for="petBreed">Breed Details:</label>
+        <textarea id="petBreed" name="petBreed" required></textarea>
         
-        <!-- Button to Add New Profile -->
-        <button id="addNewProfile">Add New Profile</button>
-        
-        <!-- Form to Add Memories -->
-        <div id="addMemoryForm">
-            <h2>Add a Memory</h2>
-            <form id="memoryForm">
-                <label for="file">Upload Image:</label>
-                <input type="file" id="file" name="file" required accept="image/*">
-                <img id="imagePreview" src="" alt="Image Preview" style="display:none; max-width: 100px;">
-                
-                <label for="caption">Caption:</label>
-                <input type="text" id="caption" name="caption" required>
-                
-                <label for="date">Date:</label>
-                <input type="date" id="date" name="date" required>
-                
-                <label for="category">Category:</label>
-                <select id="category" name="category" required>
-                    <option value="Happy Moments">Happy Moments</option>
-                    <option value="Achievements">Achievements</option>
-                    <option value="Special Days">Special Days</option>
-                </select>
-                
-                <button type="submit" class="button">Add Memory</button>
-            </form>
-        </div>
-
-        <!-- Memory Reminder Section -->
-        <div id="memoryReminder">
-            <h2>Memory Reminder</h2>
-            <p>Set reminders for special memories.</p>
-            <input type="datetime-local" id="reminderTime">
-            <button id="setReminder">Set Reminder</button>
-        </div>
-
-        <!-- Displaying Memories -->
-        <div id="memoryContainer">
-            <h2>Saved Memories</h2>
-            <!-- Memory items will be dynamically added here -->
-        </div>
-        
-        <!-- Timeline of Significant Events -->
-        <div id="timelineContainer">
-            <h2>Timeline</h2>
-            <!-- Timeline items will be dynamically added here -->
-        </div>
-
-        <!-- Footer -->
-        <footer>
-            <p>&copy; 2024 Memory Book. All rights reserved.</p>
-        </footer>
+        <label for="petPhoto">Upload Pet Photo:</label>
+        <input type="file" id="petPhoto" name="petPhoto" accept="image/*">
+        <img id="petPhotoPreview" src="" alt="Pet Photo Preview" style="display:none; max-width:100px;">
+      </div>
+      
+      <!-- Memory Entry Section -->
+      <div id="memoryEntry">
+        <h2>Add a Memory</h2>
+        <form id="memoryForm">
+          <label for="memoryFile">Upload Memory Image:</label>
+          <input type="file" id="memoryFile" name="memoryFile" required accept="image/*">
+          <img id="memoryImagePreview" src="" alt="Memory Image Preview" style="display:none; max-width:100px;">
+          
+          <label for="caption">Caption:</label>
+          <input type="text" id="caption" name="caption" required>
+          
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="date" required>
+          
+          <label for="category">Category:</label>
+          <select id="category" name="category" required>
+            <option value="Happy Moments">Happy Moments</option>
+            <option value="Achievements">Achievements</option>
+            <option value="Special Days">Special Days</option>
+          </select>
+          
+          <label for="reminderTime">Memory Reminder:</label>
+          <input type="datetime-local" id="reminderTime" name="reminderTime">
+          
+          <!-- Action Buttons -->
+          <button type="button" id="saveMemory" class="button">Save Memory</button>
+          <button type="button" id="addNewProfile" class="button">Add New Profile</button>
+        </form>
+      </div>
     </div>
-
-    <!-- Service Worker -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('https://drkimogad.github.io/SWs/memoryBook/service-worker.js').then(function(registration) {
-                    console.log('Service Worker registered with scope:', registration.scope);
-                }).catch(function(error) {
-                    console.log('Service Worker registration failed:', error);
-                });
-            });
-        }
-    </script>
-
-    <!-- Custom Script (Memory Book Functionality) -->
-    <script src="scripts/memoryBook.js"></script>
+    
+    <!-- Saved Memories Container -->
+    <div id="savedMemoriesContainer">
+      <h2>Saved Memories</h2>
+      <!-- Saved memory cards (with Edit and Export buttons) will be dynamically added here -->
+    </div>
+    
+    <!-- Return to Navigation Menu Button -->
+    <div id="returnNavContainer">
+      <button id="returnToNav" class="button">Return to Navigation Menu</button>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Memory Book. All rights reserved.</p>
+    </footer>
+  </div>
+  
+  <!-- Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('https://drkimogad.github.io/SWs/memoryBook/service-worker.js')
+          .then(function(registration) {
+            console.log('Service Worker registered with scope:', registration.scope);
+          }).catch(function(error) {
+            console.log('Service Worker registration failed:', error);
+          });
+      });
+    }
+  </script>
+  
+  <!-- Custom Script (Memory Book Functionality) -->
+  <script src="scripts/memoryBook.js"></script>
 </body>
 </html>
-
